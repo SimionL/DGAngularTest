@@ -1,0 +1,47 @@
+<div *ngFor="let d of dataSource">
+    <table>
+        <th>{{d.column[0].header}}</th>
+        <th>{{d.column[1].header}}</th>
+        <th>Product manager</th>
+        <th>Sales start date</th>
+        <th>{{d.column[2].subHeaders[0].header}}</th>
+        <th><span style="top:-19px; position: relative">{{d.column[2].header}} <br> {{d.column[2].subHeaders[1].header}}</span></th>
+        <th>{{d.column[2].subHeaders[2].header}}</th>
+        <th>{{d.column[2].subHeaders[3].header}}</th>
+        <th>{{d.column[3].header}}</th>
+
+        <tr *ngFor="let pr of d.data">
+            <td>
+                {{ pr.productID }}
+            </td>
+            <td>
+                {{ pr.productName }}
+            </td>
+            <td>
+                {{ pr.productManager || '' }}
+            </td>
+            <td>
+                {{ pr.salesStartDate }}
+            </td>
+            <td>
+                {{ pr.salesQ1 }}
+            </td>
+            <td>
+                {{ pr.salesQ2 }}
+            </td>
+            <td>
+                {{ pr.salesQ3 }}
+            </td>
+            <td>
+                {{ pr.salesQ4 }}
+            </td>
+            <td>
+                {{ pr.salesQ1 + pr.salesQ2 + pr.salesQ3 + pr.salesQ4}}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div style="text-align:center">
+    <input type="button" value="Add" style="cursor:pointer" (click)="goToProduct()">
+</div>
